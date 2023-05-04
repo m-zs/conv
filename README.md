@@ -52,3 +52,14 @@ getBob({ maxDistance: 100, age: 20 })
 ```
 let addNumbers = (a, b) => a + b;
 ```
+
+###### Consts
+- uppercase, snake case
+
+NO:
+
+`let mobileBreakpoint = 200;`
+
+YES:
+
+`let MOBILE_BREAKPOINTS = 200`
