@@ -2,6 +2,7 @@
 
 ### Naming, declarations
 
+
 ##### Variables
 - camel case
 - descriptive
@@ -14,6 +15,7 @@ YES:
 
 `let firstName = "Bob"`
 
+
 ###### Booleans
 - is/has prefix
 
@@ -24,6 +26,7 @@ NO:
 YES:
 
 `let isMobile = true`
+
 
 ###### Functions
 - nouns and verbs as prefixes
@@ -62,4 +65,4 @@ NO:
 
 YES:
 
-`let MOBILE_BREAKPOINTS = 200`
+`let MOBILE_BREAKPOINT = 200`
