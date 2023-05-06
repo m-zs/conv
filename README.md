@@ -58,6 +58,9 @@
 6. Reiterate starting on [step 1](#step1).
 
 <br>
+
+------------
+
 <br>
 
 ## Code Conventions <a href="#code-conventions" id="code-conventions"/>
