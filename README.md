@@ -76,7 +76,9 @@ YES:
 
 `let firstName = "Bob"`
 
-###### Booleans
+<br>
+
+##### Booleans
 - is/has prefix
 
 NO:
@@ -87,7 +89,9 @@ YES:
 
 `let isMobile = true`
 
-###### Functions
+<br>
+
+##### Functions
 - nouns and verbs as prefixes
 - use object parameter if function has potential to change over time/ has multiple optional parameters, for base utils use simpler declarations
 - descriptive parameter names
@@ -115,7 +119,9 @@ getBob({ maxDistance: 100, age: 20 })
 let addNumbers = (a, b) => a + b;
 ```
 
-###### Consts
+<br>
+
+##### Consts
 - uppercase, snake case
 
 NO:
