@@ -18,8 +18,8 @@
 4. Consult other developers if there is a different way of implementation to improve overall quality (applies to more complicated features).
 5. Refactor code following [code conventions](#code-conventions)
 6. If any mistakes or inaccuracies are found following steps should be consulted with the PM/PO.
-7. Remember to add unit/ integration tests to refactored code following [test conventions].
-8. Commit changes using [git conventions]
+7. Remember to add unit/ integration tests to refactored code following [test conventions](#testing).
+8. Commit changes using [git conventions](#git)
 9. When work is complete - create a merge request for the subtask branch targeting the main refactor branch.
 10. Request code review from at least two reviewers.
 11. If new task/ issue related to module appears - it should be consulted with the PM/PO if refactor will fix it. 
@@ -184,8 +184,10 @@ YES:
 
 ```it("should return NaN when argument that is not a number is provided", () => ...);```
 
-```it("should display input field if visibility toggle is active", () => ...);```
+```it("should display input field if visibility toggle is on", () => ...);```
+
 4. Fill data using as much real (generated) data as possible.
+
 NO:
 ```
 const genearateUser = () => ({
@@ -202,8 +204,51 @@ const user = {
 };
 const users = Array.from(new Array(generateNumberInRange(1, 20)), () => generateUser());
 ```
-6. Structure test using Aarrange Act Assert (AAA).
-7. 
+6. Structure test using Arrange Act Assert (AAA).
+7. Additionaly read:
+- [Javascript testing](https://github.com/goldbergyoni/javascript-testing-best-practices)
+- [RTL testing](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
+
+Test example (comments not required):
+```
+import { render, screen } from '@testing-library/react';
+import faker from "faker";
+import { UserForm } from "./UserForm";
+
+describe("<UserForm/>", () => {
+ describe("Adding user", () => {
+  it("should trigger onSubmit without error when valid user is added", async () => {
+   // arrange
+   const userEvent = userEvent.setup();
+   const callback = jest.fn();
+   render(<UserForm onSubmit={callback}/>)
+   
+   // act
+   await userEvent.type(screen.getByRole("textbox", { name: "Name" }), faker.name());
+   await user.click(screen.getByRole("button", { name: "Submit" }));
+   
+   // assert
+   expect(callback).toHaveBeenLastCalledTimes(1);
+   expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+  });
+  
+  it("should display error when invalid user is added", async () => {
+   // arrange
+   const userEvent = userEvent.setup();
+   const callback = jest.fn();
+   render(<UserForm onSubmit={callback}/>)
+   
+   // act
+   await userEvent.type(screen.getByRole("textbox", { name: "Name" }), faker.number());
+   await user.click(screen.getByRole("button", { name: "Submit" }));
+   
+   // assert
+   expect(screen.queryByRole("alert")).toBeInTheDocument();
+   expect(callback).toHaveBeenLastCalledTimes(0);
+  });
+ });
+})
+```
 
 <br>
 
@@ -219,6 +264,14 @@ const users = Array.from(new Array(generateNumberInRange(1, 20)), () => generate
 2. Integration tests should validate how multiple units are working together.
 3. Mock only when necessary.
 4. Never make HTTP requests.
+
+<br>
+
+------------
+
+<br>
+
+## Git conventions <a href="#git" id="git"/>
 
 <br>
 
