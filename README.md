@@ -134,3 +134,95 @@ NO:
 YES:
 
 `let MOBILE_BREAKPOINT = 200`
+
+<br>
+
+------------
+
+<br>
+
+## Folder structure <a href="#folder-structure" id="folder-structure"/>
+
+    .
+    └── src 
+        ├── api
+        |   ├── index.ts # (Barrel file)
+        |   ├── queryKeys.ts # (Query ids)
+        |   ├── queryClient.ts # (Query client with configuration)
+        |   ├── apiProvider.ts # (Api client with configuration)
+        |   ├── types.ts # (Shared types)
+        |   ├── utils.ts # (Utils)
+        |   ├── utils.test.ts # (Utils tests)
+        |   ├── endpoints
+        |   |     └── users
+        |   |           ├── index.ts # (Barrel file)
+        |   |           ├── hooks
+        |   |           |    ├── index.ts # (Barrel file)
+        |   |           |    └── useGetUsers.ts # (Hook implementation)
+        |   |           └── requests
+        |   |               ├── index.ts # (Barrel file)
+        |   |               └── getUsers.ts # (Api request implementation)
+        |   └── interceptors # (Interceptors added to api provider)
+        |        └── exampleInterceptor
+        |            ├── index.ts # (Barrel file)
+        |            ├── exampleInterceptor.ts # (Interceptor implementation)
+        |            └── exampleInterceptor.test.ts # (Interceptor tests)
+        ├── config
+        |   ├── env.ts
+        |   ├── access.ts
+        |   └── index.ts
+        ├── routing
+        |   ├── ExampleRouter.tsx
+        |   └── Router.tsx
+        ├── localization
+        |   ├── translations
+        |   |   ├── pl.json
+        |   |   └── en.json
+        |   ├── index.ts
+        |   ├── types.ts
+        |   └── LocalizationProvider.tsx
+        ├── components
+        |    └── ExampleComponent
+        |        ├── index.ts  # (Barrel file)
+        |        ├── ExampleSub.tsx # (Child component)
+        |        ├── ExampleSub.test.ts # (Component tests)
+        |        ├── utils.ts # (Local utils)
+        |        ├── utils.test.ts # (Utils tests)
+        |        └── styles.css # (Component specific styles)
+        ├── styles
+        ├── types
+        |   ├── index.ts # (Types barrel file)
+        |   └── example.ts # (Types related to example)
+        ├── utils
+        |   ├── index.ts # (Utils barrel file)
+        |   └── example-group # (Utils group related to a topic)
+        |       ├── index.ts # (Group barrel file)
+        |       └── doExample # (Util folder)
+        |           ├── doExample.ts # (Util implementation)
+        |           └── doExample.test.ts # (Util tests)
+        ├── hooks
+        │   └── useHook
+        │       ├── index.ts # (Barrel file)
+        |       ├── useHook.ts # (Hook implementation)
+        |       ├── useHook.test.ts # (Hook tests)
+        |       ├── utils.ts # (Utils)
+        |       └── utils.test.ts # (Utils tests)
+        └── features
+            └── Example
+                ├── README.md # (Feature readme with specs and solution design summary)
+                ├── index.ts  # (Barrel file)
+                ├── Example.tsx # (Main component)
+                ├── Example.test.ts # (Main component tests)
+                ├── utils.ts # (Main/shared feture specific utils)
+                ├── utils.test.ts # (Utils tests)
+                ├── styles.css # (Main component styles)
+                ├── types.ts # (Shared local types)
+                └── components # (Shared local types)
+                    └── ExampleSub
+                        ├── index.ts  # (Barrel file)
+                        ├── ExampleSub.tsx # (Child component)
+                        ├── ExampleSub.test.ts # (Component tests)
+                        ├── utils.ts # (Local utils)
+                        ├── utils.test.ts # (Utils tests)
+                        └── styles.css # (Component specific styles)
+
