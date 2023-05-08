@@ -73,11 +73,15 @@
 
 NO:
 
-`let String = "Bob";`
+```
+let String = "Bob";
+```
 
 YES:
 
-`let firstName = "Bob"`
+```
+let firstName = "Bob"
+```
 
 <br>
 
@@ -86,11 +90,15 @@ YES:
 
 NO:
 
-`let mobile = true`
+```
+let mobile = true
+```
 
 YES:
 
-`let isMobile = true`
+```
+let isMobile = true
+```
 
 <br>
 
@@ -101,25 +109,31 @@ YES:
 
 NO:
 
-`let bob = () => "Bob"`
-
-`let bobGet = () =>"Bob"`
+```
+const bob = () => "Bob"
+```
 
 ```
-let getBob = (a, b, c , d, e) =>...
+const bobGet = () => "Bob"
+```
+
+```
+const getBob = (a, b, c , d, e) => ...
 getBob(1, 2, undefined, undefined, 3);
 ```
 
 YES:
 
-`let  getBob = () =>"Bob"`
+```
+const getBob = () => "Bob"
+```
 
 ```
-let getBob = ({ age, maxDistance, minDistance, height }) =>...
+const getBob = ({ age, maxDistance, minDistance, height }) => ...
 getBob({ maxDistance: 100, age: 20 })
 ```
 ```
-let addNumbers = (a, b) => a + b;
+const addNumbers = (a, b) => a + b;
 ```
 
 <br>
@@ -129,11 +143,15 @@ let addNumbers = (a, b) => a + b;
 
 NO:
 
-`let mobileBreakpoint = 200;`
+```
+const mobileBreakpoint = 200;
+```
 
 YES:
 
-`let MOBILE_BREAKPOINT = 200`
+```
+const MOBILE_BREAKPOINT = 200
+```
 
 <br>
 
@@ -176,15 +194,23 @@ describe("UserService", () => {
 
 NO:
 
-```it("return Nan", () => ...);```
+```
+it("return Nan", () => ...);
+```
 
-```it("input field is visible", () => ...);```
+```
+it("input field is visible", () => ...);
+```
 
 YES:
 
-```it("should return NaN when argument that is not a number is provided", () => ...);```
+```
+it("should return NaN when argument that is not a number is provided", () => ...);
+```
 
-```it("should display input field if visibility toggle is on", () => ...);```
+```
+it("should display input field if visibility toggle is on", () => ...);
+```
 
 4. Fill data using as much real (generated) data as possible.
 
