@@ -141,6 +141,91 @@ YES:
 
 <br>
 
+## Testing conventions <a href="#testing" id="testing"/>
+
+### General
+
+1. Prioritize integration tests.
+2. Add unit tests for more complicated functions.
+3. Add e2e for whole feature.
+
+<br>
+
+### Naming
+1. Test should describe tested unit.
+```
+import { Component } from "./";
+describe(("<Component />") => ...)
+```
+
+```
+import { addNumbers } from "./";
+describe(("addNumbers") => ...)
+```
+2. Nest describe blocks for test groups.
+```
+describe("UserService", () => {
+ describe("AddUser", () => ...);
+ describe("RemoveUser", () => ...);
+})
+```
+3. Test cases should be built using:
+- `should`
+- expected behaviour
+- circumstances
+
+NO:
+
+```it("return Nan", () => ...);```
+
+```it("input field is visible", () => ...);```
+
+YES:
+
+```it("should return NaN when argument that is not a number is provided", () => ...);```
+
+```it("should display input field if visibility toggle is active", () => ...);```
+4. Fill data using as much real (generated) data as possible.
+NO:
+```
+const genearateUser = () => ({
+ name: "Bob"
+ lastName: "Wick"
+});
+const users = [user, user, user];
+```
+YES:
+```
+const user = {
+ name: generateName();
+ lastName: generateLastName();
+};
+const users = Array.from(new Array(generateNumberInRange(1, 20)), () => generateUser());
+```
+6. Structure test using Aarrange Act Assert (AAA).
+7. 
+
+<br>
+
+#### Unit testing
+1. There is no need to test all existing utility functions.
+2. For time efficiency prefer integration tests over unit tests.
+3. Unit tests should have no dependencies, or dependencies mocked.
+
+<br>
+
+#### Integration testing
+1. Prefer integration test over any other type.
+2. Integration tests should validate how multiple units are working together.
+3. Mock only when necessary.
+4. Never make HTTP requests.
+
+<br>
+
+------------
+
+<br>
+
 ## Folder structure <a href="#folder-structure" id="folder-structure"/>
 
     .
