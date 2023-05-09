@@ -12,7 +12,7 @@
 
 ### 2. Codebase refactor <a href="#step2" id="step2"/>
 
-1. Create main refactor branch, add feature readme based on [step 1](#step1).
+1. Create main refactor branch, add link to feature docs in README.
 2. Create a new refactor subtask branch that will be reviewed and merged into the main branch after work is complete.
 3. Change main and subtask statuses to "In progress".
 4. Consult other developers if there is a different way of implementation to improve overall quality (applies to more complicated features).
@@ -155,6 +155,11 @@ const MOBILE_BREAKPOINT = 200
 
 <br>
 
+##### Maps and Sets
+
+
+<br>
+
 ------------
 
 <br>
@@ -230,10 +235,11 @@ const user = {
 };
 const users = Array.from(new Array(generateNumberInRange(1, 20)), () => generateUser());
 ```
-6. Structure test using Arrange Act Assert (AAA).
-7. Additionaly read:
+4. Structure test using Arrange Act Assert (AAA).
+5. Additionaly read:
 - [Javascript testing](https://github.com/goldbergyoni/javascript-testing-best-practices)
 - [RTL testing](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
+- [RTL queries](https://testing-library.com/docs/queries/about/#priority)
 
 Test example (comments not required):
 ```
@@ -251,7 +257,7 @@ describe("<UserForm/>", () => {
    
    // act
    await userEvent.type(screen.getByRole("textbox", { name: "Name" }), faker.name());
-   await user.click(screen.getByRole("button", { name: "Submit" }));
+   await userEvent.click(screen.getByRole("button", { name: "Submit" }));
    
    // assert
    expect(callback).toHaveBeenLastCalledTimes(1);
@@ -266,7 +272,7 @@ describe("<UserForm/>", () => {
    
    // act
    await userEvent.type(screen.getByRole("textbox", { name: "Name" }), faker.number());
-   await user.click(screen.getByRole("button", { name: "Submit" }));
+   await userEvent.click(screen.getByRole("button", { name: "Submit" }));
    
    // assert
    expect(screen.queryByRole("alert")).toBeInTheDocument();
@@ -373,7 +379,7 @@ describe("<UserForm/>", () => {
         |       └── utils.test.ts # (Utils tests)
         └── features
             └── Example
-                ├── README.md # (Feature readme with specs and solution design summary)
+                ├── README.md # (Link to docs)
                 ├── index.ts  # (Barrel file)
                 ├── Example.tsx # (Main component)
                 ├── Example.test.ts # (Main component tests)
