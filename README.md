@@ -200,7 +200,7 @@ describe("UserService", () => {
 NO:
 
 ```
-it("return Nan", () => ...);
+it("return NaN", () => ...);
 ```
 
 ```
